@@ -49,8 +49,7 @@ const typeController = (e) => {
   } else {
     display.innerHTML += `<span class="red">${
       newLetter === " " ? "▪" : newLetter
-      }</span>`;
-    
+    }</span>`;
   }
 
   // check if given question text is equal to user typed text
@@ -62,8 +61,10 @@ const typeController = (e) => {
 const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
     return true;
+  } else {
+    errorCount++;
+    return false;
   }
-  return false;
 };
 
 // FINISHED TYPING
@@ -78,6 +79,7 @@ const gameOver = () => {
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
   modalBackground.classList.toggle("hidden");
+
   // clear user text
   display.innerHTML = "";
   // make it inactive
